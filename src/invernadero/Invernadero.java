@@ -29,6 +29,9 @@ import javax.swing.JSpinner;
 
 public class Invernadero {
 
+    private final String user = "postgres";
+    private final String password = "tomas";
+
 	private JFrame frame;
 	private JTextField textSerial;
 	private JTextField textNombre;
@@ -44,14 +47,14 @@ public class Invernadero {
 		modelo.addColumn("Grupo");
 		modelo.addColumn("Orden");
 		modelo.addColumn("Familia");
-		modelo.addColumn("Género");
+		modelo.addColumn("Gé§­ero");
 		modelo.addColumn("Cantidad");
 		table.setModel(modelo);
 		String datos[] = new String[7];
 		Statement at = null;
 		String url = "jdbc:postgresql://localhost:5432/Invernadero";
 		try {
-			Connection base = DriverManager.getConnection(url, "postgres", "tomas");
+			Connection base = DriverManager.getConnection(url, user, password);
 			at = base.createStatement();
 			ResultSet rs = at.executeQuery("SELECT * FROM Invernadero");
 			while (rs.next()) {
@@ -191,7 +194,7 @@ public class Invernadero {
 				String urlDatabase = "jdbc:postgresql://localhost:5432/Invernadero";
 				try {
 					Class.forName("org.postgresql.Driver");
-					con = DriverManager.getConnection(urlDatabase, "postgres", "tomas");
+					con = DriverManager.getConnection(urlDatabase, user, password);
 					Statement st = con.createStatement();
 					String sql = "INSERT INTO Invernadero(serial, nombre, grupo, orden, familia, genero, cantidad)"
 							+ "values ('" + textSerial.getText() + "', '" + textNombre.getText() + "', '" + comboBox.getSelectedItem() + "', '" + textOrden.getText() + "', '" + textFamilia.getText() + "', '" + textGenero.getText() + "', '" + spinner.getValue() + "')";
@@ -217,7 +220,7 @@ public class Invernadero {
 				String urlDatabase = "jdbc:postgresql://localhost:5432/Invernadero";
 				try {
 					Class.forName("org.postgresql.Driver");
-					con = DriverManager.getConnection(urlDatabase, "postgres", "tomas");
+					con = DriverManager.getConnection(urlDatabase, user, password);
 					Statement st = con.createStatement();
 					String sql = "UPDATE Invernadero SET"
 							+ " serial='" + textSerial.getText() + "', nombre='" + textNombre.getText() + "', grupo='" + comboBox.getSelectedItem() + "', orden='" + textOrden.getText() + "', familia='" + textFamilia.getText() + "', genero='" + textGenero.getText() + "', cantidad='" + spinner.getValue() + "' WHERE serial='" + textSerial.getText() + "'";
@@ -241,7 +244,7 @@ public class Invernadero {
 				String urlDatabase = "jdbc:postgresql://localhost:5432/Invernadero";
 				try {
 					Class.forName("org.postgresql.Driver");
-					con = DriverManager.getConnection(urlDatabase, "postgres", "tomas");
+					con = DriverManager.getConnection(urlDatabase, user, password);
 					Statement st = con.createStatement();
 					String sql = "DELETE FROM Invernadero WHERE serial='" + textSerial.getText() + "'";
 					ResultSet result = st.executeQuery(sql);
