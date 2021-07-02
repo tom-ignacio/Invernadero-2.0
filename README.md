@@ -38,3 +38,23 @@ CREATE TABLE Invernadero (
 );
 ```
 Luego de esto ya se podrá ejecutar Invernadero 2.0 sin problema alguno. Este procedimiento solo se debe realizar la primera vez que se instala el programa.
+
+# Utilizando Invernadero 2.0
+
+## Ingresando datos
+Una vez ingresado en el programa todo es autoexplicativo, los datos se ingresan en las cajas vacias y los datos a ingresar son los siguientes:
+* **Serial:** únicamente puede ser un número entero y solo puede ser usado una vez. *En caso de ingresar un valor no permitido saldrá un mensaje de error y no se guardará ningun dato*
+* **Nombre:** no existen limitaciones respecto a este.
+* **Grupo:** solo se pueden seleccionar entre espermatofita y pteridofita
+* **Orden:** no existen limitaciones respecto a este.
+* **Familia:** no existen limitaciones respecto a este.
+* **Género:** no existen limitaciones respecto a este.
+* **Cantidad:** unicamente puede ser un número entero.
+
+## Función de cada botón
+
+* **Guardar:** guarda todos los datos ingresados.
+* **Modificar:** modifica los datos de una planta siempre y cuando se ingresen los datos y se especifique el serial.
+* **Eliminar:** elimina los datos de una planta siempre y cuando se ingresen los datos y se especifique el serial.
+* **Refrescar:** refresca la lista de base de datos. *Generalmente es recomendado para cuando se inicie el programa luego de haberlo cerrado, ya que la tabla de datos saldrá vacía.
+* **Nuevo:** vacia todas las casillas a ingresar para poder ingresar datos nuevo.
